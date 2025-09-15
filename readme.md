@@ -1,6 +1,6 @@
 # Input Labs CAD models
 
-*Alpakka controller 3D-printed case and buttons (reference designs)*
+*3D-printed models for Alpakka and Kapybara controllers reference designs.*
 
 ## Project links
 - [Alpakka Manual](https://inputlabs.io/devices/alpakka/manual).

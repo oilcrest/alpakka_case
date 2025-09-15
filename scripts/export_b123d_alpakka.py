@@ -2,7 +2,7 @@ from build123d import Axis, Plane, Compound, Location, export_stl, export_step
 
 # Import parts.
 import sys
-sys.path.insert(1, './build123d')
+sys.path.insert(1, './alpakka/build123d')
 from button_dpad import button_dpad
 from button_abxy import button_abxy
 from button_select import button_select
@@ -15,8 +15,8 @@ from cover import cover
 from hexagon import chex
 from dongle_case import dongle_case
 
-STL_DIR = 'stl/'
-STEP_DIR = 'step/'
+STL_DIR = 'alpakka/stl/'
+STEP_DIR = 'alpakka/step/'
 
 def export(obj, filename, subdir=''):
     print(f'Exporting {subdir}{filename}')

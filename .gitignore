@@ -7,3 +7,4 @@ backup/
 **/blender/render/
 .vscode/
 __pycache__/
+venv/
