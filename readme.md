@@ -1,12 +1,12 @@
-# Alpakka 3D-print
+# Input Labs CAD models
 
 *Alpakka controller 3D-printed case and buttons (reference designs)*
 
 ## Project links
 - [Alpakka Manual](https://inputlabs.io/devices/alpakka/manual).
-- [Alpakka Firmware](https://github.com/inputlabs/alpakka_firmware).
-- [Alpakka PCB](https://github.com/inputlabs/alpakka_pcb).
-- [Alpakka 3D-print](https://github.com/inputlabs/alpakka_case). _(you are here)_
+- [Firmware](https://github.com/inputlabs/alpakka_firmware).
+- [PCB](https://github.com/inputlabs/alpakka_pcb).
+- [CAD](https://github.com/inputlabs/alpakka_case). _(you are here)_
 - [Input Labs Roadmap](https://github.com/orgs/inputlabs/projects/2/views/2).
 
 ## Previews

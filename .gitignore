@@ -1,9 +1,9 @@
 *.blend1
 backup/
-stl/
-step/
-3mf/
-release/
-blender/render/
+**/old/
+**/stl/
+**/step/
+**/release/
+**/blender/render/
 .vscode/
 __pycache__/
