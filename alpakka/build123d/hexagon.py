@@ -61,14 +61,13 @@ with BuildPart() as chex:
     # Tabs (to prevent wrong insertion).
     tab_z = TRAPEZ_Z_LEN - TABS_Z_LEN
     normal = Axis(origin=(0,0,0), direction=(1,1,0))
-    face1 = (chex.faces()
-        .filter_by(normal)[1]
-        .split(Plane.XY.offset(tab_z), keep=Keep.TOP)
+    sorted_faces = (chex.faces()
+        .filter_by(normal)
+        .sort_by(Axis.X)  # Deterministic.
+        .sort_by(Axis.Y)  # Deterministic.
     )
-    face2 = (chex.faces()
-        .filter_by(normal)[3]
-        .split(Plane.XY.offset(tab_z), keep=Keep.TOP)
-    )
+    face1 = sorted_faces[1].split(Plane.XY.offset(tab_z), keep=Keep.TOP)
+    face2 = sorted_faces[2].split(Plane.XY.offset(tab_z), keep=Keep.TOP)
     extrude(face1, until=Until.NEXT, dir=(0,1,0))
     extrude(face2, until=Until.NEXT, dir=(0,-1,0))
 
