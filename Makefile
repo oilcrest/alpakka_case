@@ -19,17 +19,22 @@ clean:
 alpakka_blender:
 	mkdir -p alpakka/stl
 	mkdir -p alpakka/stl/variants
-	$(BLENDER) alpakka/blender/case_front.blend      --background --python scripts/export_blender.py
-	$(BLENDER) alpakka/blender/case_back.blend       --background --python scripts/export_blender.py
-	$(BLENDER) alpakka/blender/trigger_R2.blend      --background --python scripts/export_blender.py
-	$(BLENDER) alpakka/blender/trigger_R4.blend      --background --python scripts/export_blender.py
-	$(BLENDER) alpakka/blender/anchor.blend          --background --python scripts/export_blender.py
-	$(BLENDER) alpakka/blender/thumbstick.blend      --background --python scripts/export_blender.py
-	$(BLENDER) alpakka/blender/button_home.blend     --background --python scripts/export_blender.py
-	$(BLENDER) alpakka/blender/soldering_stand.blend --background --python scripts/export_blender.py
+	$(BLENDER) alpakka/blender/case_front.blend      --background --python scripts/export_blender_alpakka.py
+	$(BLENDER) alpakka/blender/case_back.blend       --background --python scripts/export_blender_alpakka.py
+	$(BLENDER) alpakka/blender/trigger_R2.blend      --background --python scripts/export_blender_alpakka.py
+	$(BLENDER) alpakka/blender/trigger_R4.blend      --background --python scripts/export_blender_alpakka.py
+	$(BLENDER) alpakka/blender/anchor.blend          --background --python scripts/export_blender_alpakka.py
+	$(BLENDER) alpakka/blender/thumbstick.blend      --background --python scripts/export_blender_alpakka.py
+	$(BLENDER) alpakka/blender/button_home.blend     --background --python scripts/export_blender_alpakka.py
+	$(BLENDER) alpakka/blender/soldering_stand.blend --background --python scripts/export_blender_alpakka.py
 	# Variants.
 	mv alpakka/stl/007mm_thumbstick_L_loose.stl  alpakka/stl/007mm_thumbstick_L.stl
 	mv alpakka/stl/007mm_thumbstick_L_tight.stl  alpakka/stl/variants/007mm_thumbstick_L_tight.stl
+
+kapybara_blender:
+	mkdir -p kapybara/stl
+	$(BLENDER) kapybara/blender/kapybara.blend --background --python scripts/export_blender_kapybara.py
+
 
 alpakka_build123d:
 	mkdir -p alpakka/stl
@@ -40,6 +45,11 @@ alpakka_build123d:
 
 alpakka_release: clean alpakka_blender alpakka_build123d
 	mkdir -p alpakka/release/
-	zip -u alpakka/release/blender.zip           alpakka/blender/*.blend
-	zip -u alpakka/release/stl.zip stl/*.stl     alpakka/stl/**/*.stl
-	zip -u alpakka/release/step.zip step/*.step  alpakka/step/**/*.step
+	cd alpakka && zip release/blender.zip  blender/*.blend
+	cd alpakka && zip -r release/stl.zip   stl/
+	cd alpakka && zip -r release/step.zip  step/
+
+kapybara_release: clean kapybara_blender
+	mkdir -p kapybara/release/
+	cd kapybara && zip -r release/blender.zip  blender/
+	cd kapybara && zip -r release/stl.zip      stl/
