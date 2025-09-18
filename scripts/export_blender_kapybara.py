@@ -39,6 +39,7 @@ def export(stl_name, obj_names, modifiers):
 # WARNING:
 # All exports are done on the same blender instance, modifiers that are not
 # reverted could have an impact on subsequent exports.
+bpy.ops.wm.open_mainfile(filepath="kapybara/blender/kapybara.blend")
 
 # Case.
 export('case_bottom_right', ['Body', 'trigger', 'bumper', 'home'], ['body_bottom'])

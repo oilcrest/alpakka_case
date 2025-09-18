@@ -1,7 +1,8 @@
 import bpy
-import math
+import sys
 from pathlib import Path
 
+bpy.ops.wm.open_mainfile(filepath=sys.argv[1])
 context = bpy.context
 scene = context.scene
 viewlayer = context.view_layer

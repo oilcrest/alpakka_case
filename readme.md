@@ -20,9 +20,10 @@
 
 ## Dependencies
 - Git LFS.
-- Blender >= 4.x.
-- Blender `bpy` module.
-- Build123d python CAD library.
+- Blender >= 4.5
+- `make install`
+    - BPY `4.5.3`
+    - Build123d `0.9.1`
 - OCP CAD viewer (VSCode Build123d editor). *[optional]*
 
 ## LFS and file download
