@@ -66,4 +66,5 @@ jobs:
           path: |
             kapybara_blender_${{env.VERSION}}.zip
             kapybara_stl_${{env.VERSION}}.zip
+            metadata.txt
 
