@@ -91,7 +91,10 @@ The export script will create `STL` for all Blender and Build123D parts, and `ST
 
 
 ## Developer commands
-- `make release` - Create `blender.zip`, `stl.zip` and `step.zip`.
+- `make alpakka_release` - Create `blender.zip`, `stl.zip` and `step.zip`.
+- `make alpakka_blender` - Export only Blender files.
+- `make alpakka_build123d` - Export only Build123d files.
+- `make kapybara_release`
+- `make kapybara_blender`
+- `make kapybara_build123d`
 - `make clean` - Remove all export files and leftovers.
-- `make blend` - Export only Blender files.
-- `make b123d` - Export only Build123d files.
