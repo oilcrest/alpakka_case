@@ -70,4 +70,5 @@ jobs:
             alpakka_blender_${{env.VERSION}}.zip
             alpakka_stl_${{env.VERSION}}.zip
             alpakka_step_${{env.VERSION}}.zip
+            metadata.txt
 
