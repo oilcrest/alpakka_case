@@ -46,11 +46,11 @@ alpakka_build123d:
 
 alpakka_release: clean alpakka_blender alpakka_build123d
 	mkdir -p alpakka/release/
-	cd alpakka && zip release/blender.zip  blender/*.blend
-	cd alpakka && zip -r release/stl.zip   stl/
-	cd alpakka && zip -r release/step.zip  step/
+	cd alpakka && zip    release/alpakka_blender.zip  blender/*.blend
+	cd alpakka && zip -r release/alpakka_stl.zip   stl/
+	cd alpakka && zip -r release/alpakka_step.zip  step/
 
 kapybara_release: clean kapybara_blender
 	mkdir -p kapybara/release/
-	cd kapybara && zip -r release/blender.zip  blender/
-	cd kapybara && zip -r release/stl.zip      stl/
+	cd kapybara && zip -r release/kapybara_blender.zip  blender/
+	cd kapybara && zip -r release/kapybara_stl.zip      stl/

@@ -35,13 +35,49 @@ jobs:
           echo "VERSION=$VERSION"
 
           make alpakka_release
+          mv alpakka/release/alpakka_blender.zip  alpakka/release/alpakka_blender_${VERSION}.zip
+          mv alpakka/release/alpakka_stl.zip      alpakka/release/alpakka_stl_${VERSION}.zip
+          mv alpakka/release/alpakka_step.zip     alpakka/release/alpakka_step_${VERSION}.zip
 
-      # - name: Upload artifacts
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: alpakka_artifacts
-      #     path: |
-      #       alpakka_pico_${{env.VERSION}}.uf2
-      #       alpakka_marmota_${{env.VERSION}}.uf2
-      #       dongle_marmota_${{env.VERSION}}.uf2
-      #       metadata.txt
+          make kapybara_release
+          mv kapybara/release/kapybara_blender.zip  kapybara/release/kapybara_blender_${VERSION}.zip
+          mv kapybara/release/kapybara_stl.zip      kapybara/release/kapybara_stl_${VERSION}.zip
+
+          echo -e "\
+          =================================
+          This firmware build was automated
+          =================================
+
+          Branch / Tag:
+          ${GITHUB_REF}
+
+          Commit:
+          ${GITHUB_SHA}
+
+          Checksums:
+          \$ shasum alpakka/release/alpakka_blender_${VERSION}.zip
+          $(cat alpakka/release/alpakka_blender_${VERSION}.zip | shasum | head -c 40)
+          \$ shasum alpakka/release/alpakka_stl_${VERSION}.zip
+          $(cat alpakka/release/alpakka_stl_${VERSION}.zip | shasum | head -c 40)
+          \$ shasum alpakka/release/alpakka_step_${VERSION}.zip
+          $(cat alpakka/release/alpakka_step_${VERSION}.zip | shasum | head -c 40)
+          \$ shasum kapybara/release/kapybara_blender_${VERSION}.zip
+          $(cat kapybara/release/kapybara_blender_${VERSION}.zip | shasum | head -c 40)
+          \$ shasum kapybara/release/kapybara_stl_${VERSION}.zip
+          $(cat kapybara/release/kapybara_stl_${VERSION}.zip | shasum | head -c 40)
+
+          Job:
+          ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}
+          " > metadata.txt
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: alpakka_artifacts
+          path: |
+            alpakka/release/alpakka_blender_${{env.VERSION}}.zip
+            alpakka/release/alpakka_stl_${{env.VERSION}}.zip
+            alpakka/release/alpakka_step_${{env.VERSION}}.zip
+            kapybara/release/kapybara_blender_${{env.VERSION}}.zip
+            kapybara/release/kapybara_stl_${{env.VERSION}}.zip
+
