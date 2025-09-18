@@ -79,6 +79,6 @@ with BuildPart() as holder:
 
 if __name__ == '__main__':
     from common.vscode import show_object
-    from wheel import wheel
+    from wheel import wheel_default
     show_object(holder, name="Holder")
     show_object(wheel, name="Wheel")

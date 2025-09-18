@@ -115,24 +115,25 @@ class Entry:
     def export(self):
         root = Path(bpy.path.abspath("//")).parent
         path = root / 'stl' / f'{self.stl_name}.stl'
-        bpy.ops.export_mesh.stl(
+        bpy.ops.wm.stl_export(
             filepath=str(path),
-            use_selection=True,
-            axis_up=self.axis_up,
-            axis_forward=self.axis_forward)
+            export_selected_objects=True,
+            up_axis=self.axis_up,
+            forward_axis=self.axis_forward
+        )
 
 
 entries = [
     Entry('Case front',       '015mm_front'),
     Entry('R1',               '015mm_trigger_R1', split=True, mirror=True),
-    Entry('R2',               '015mm_trigger_R2', '-Z', split=True, mirror=True),
-    Entry('R4',               '015mm_trigger_R4', '-Y', '-Z', split=True, mirror=True),
+    Entry('R2',               '015mm_trigger_R2', 'NEGATIVE_Z', split=True, mirror=True),
+    Entry('R4',               '015mm_trigger_R4', 'NEGATIVE_Y', 'NEGATIVE_Z', split=True, mirror=True),
     Entry('DHat',             '015mm_dhat'),
-    Entry('Case back',        '015mm_back', '-Z'),
+    Entry('Case back',        '015mm_back', 'NEGATIVE_Z'),
     Entry('Home',             '007mm_home', rotate=True),
     Entry('Thumbstick',       '007mm_thumbstick_L', tolerance=True),
-    Entry('Anchor',           '015mm_anchors_2x', '-Z', split=True),
-    Entry('Soldering helper', '020mm_solderstand', '-Z', merge=True),
+    Entry('Anchor',           '015mm_anchors_2x', 'NEGATIVE_Z', split=True),
+    Entry('Soldering helper', '020mm_solderstand', 'NEGATIVE_Z', merge=True),
 ]
 
 for collection in bpy.data.collections:
