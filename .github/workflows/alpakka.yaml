@@ -40,11 +40,11 @@ jobs:
           mv alpakka/release/alpakka_step.zip     alpakka_step_${VERSION}.zip
 
           echo -e "\
-          =================================
+          ============================
           This CAD build was automated
-          =================================
+          ============================
 
-          Branch / Tag:
+          Tag or branch:
           ${GITHUB_REF}
 
           Commit:

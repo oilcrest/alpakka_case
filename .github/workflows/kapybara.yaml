@@ -39,11 +39,11 @@ jobs:
           mv kapybara/release/kapybara_stl.zip      kapybara_stl_${VERSION}.zip
 
           echo -e "\
-          =================================
+          ============================
           This CAD build was automated
-          =================================
+          ============================
 
-          Branch / Tag:
+          Tag or branch:
           ${GITHUB_REF}
 
           Commit:
